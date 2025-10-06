@@ -60,6 +60,9 @@ public class PatternProgramming {
 		System.out.println("===========================");
 		System.out.println("Pattern 19");
 		pattern19(5,1,1,1);
+		System.out.println("===========================");
+		System.out.println("Pattern 20");
+		pattern20(5,1,1,1);
 		
 		
 	}
@@ -343,7 +346,7 @@ public class PatternProgramming {
 			if(k<i-n) {
 				System.out.print(" ");
 				pattern18(n,i,j,k+1);
-			} else if(j<=(2*n)-(2*(i-n)-1)) {
+			} else if(j<=(2*(2*n-i)+1)) {
 				System.out.print("*");
 				pattern18(n,i,j+1,k);
 			} else {
@@ -368,12 +371,34 @@ public class PatternProgramming {
 			if(k<=i-n) {
 				System.out.print(" ");
 				pattern19(n,i,j,k+1);
-			} else if(j<(2*n)-(2*(i-n))) {
+			} else if(j<=(2*(2*n-i)-1)) {
 				System.out.print("*");
 				pattern19(n,i,j+1,k);
 			} else {
 				System.out.println();
 				pattern19(n,i+1,1,1);
+			}
+		}
+	}
+	public static void pattern20(int n, int i, int j, int k) {
+		if(i>n) {
+			return;
+		} else if (k<=n-i) {
+			System.out.print(" ");
+			pattern20(n,i,j,k+1);
+		} else if(j>(2*i)-1) {
+			System.out.println();
+			pattern20(n,i+1,1,1);
+		} else {
+			if(i==1 || i==n) {
+				System.out.print("*");
+				pattern20(n,i,j+1,k);
+			} else if ((j!=1) && (j!=(2*i)-1)) {
+				System.out.print(" ");
+				pattern20(n,i,j+1,k);
+			} else {
+				System.out.print("*");
+				pattern20(n,i,j+1,k);
 			}
 		}
 	}
