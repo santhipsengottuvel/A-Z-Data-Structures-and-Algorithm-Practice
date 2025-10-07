@@ -63,6 +63,9 @@ public class PatternProgramming {
 		System.out.println("===========================");
 		System.out.println("Pattern 20");
 		pattern20(5,1,1,1);
+		System.out.println("===========================");
+		System.out.println("Pattern 21");
+		pattern21(5,1,1,1);
 		
 		
 	}
@@ -399,6 +402,41 @@ public class PatternProgramming {
 			} else {
 				System.out.print("*");
 				pattern20(n,i,j+1,k);
+			}
+		}
+	}
+	public static void pattern21(int n, int i, int j, int k) {
+		if(i<=n) {
+			if(k<=n-i) {
+				System.out.print(" ");
+				pattern21(n,i,j,k+1);
+			} else if (j>(2*i)-1) {
+				System.out.println();
+				pattern21(n,i+1,1,1);
+			} else {
+				if(j!=1 && (j!=(2*i)-1)) {
+					System.out.print(" ");
+					pattern21(n,i,j+1,k);
+				} else {
+					System.out.print("*");
+					pattern21(n,i,j+1,k);
+				}
+			}
+		} else if (i<2*n) {
+			if(k<=i-n) {
+				System.out.print(" ");
+				pattern21(n,i,j,k+1);
+			} else if (j>2*(2*n-i)-1) {
+				System.out.println();
+				pattern21(n,i+1,1,1);
+			} else {
+				if(j!=1 && j!=(2*(2*n-i)-1)){
+					System.out.print(" ");
+					pattern21(n,i,j+1,k);
+				} else {
+					System.out.print("*");
+					pattern21(n,i,j+1,k);
+				}
 			}
 		}
 	}
