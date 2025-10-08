@@ -29,6 +29,36 @@ public class PatternProgrammingDecomposition {
 		System.out.println("Pattern 5");
 		System.out.println();
 		pattern5(5);
+		System.out.println();
+		System.out.println("_________________________________________");
+		System.out.println();
+		System.out.println("Pattern 6");
+		System.out.println();
+		pattern6(5);
+		System.out.println();
+		System.out.println("_________________________________________");
+		System.out.println();
+		System.out.println("Pattern 7");
+		System.out.println();
+		pattern7(5);
+		System.out.println();
+		System.out.println("_________________________________________");
+		System.out.println();
+		System.out.println("Pattern 8");
+		System.out.println();
+		pattern8(5);
+		System.out.println();
+		System.out.println("_________________________________________");
+		System.out.println();
+		System.out.println("Pattern 9");
+		System.out.println();
+		pattern9(5);
+		System.out.println();
+		System.out.println("_________________________________________");
+		System.out.println();
+		System.out.println("Pattern 10");
+		System.out.println();
+		pattern10(5);
 		
 	}
 
@@ -56,6 +86,48 @@ public class PatternProgrammingDecomposition {
 		printSpaces(n-1);
 	}
 	
+	public static void upperPyramid(int n, int rows) {
+		if(n<rows) {
+			return;
+		} else {
+			printSpaces(n-rows+1);
+			printStarsWithSpaces(rows);
+			System.out.println();
+			upperPyramid(n,rows+1);
+		}
+	}
+	
+	public static void lowerPyramid(int n, int rows) {
+		if(n<rows) {
+			return;
+		} else {
+			lowerPyramid(n,rows+1);
+			printSpaces(n-rows+1);
+			printStarsWithSpaces(rows);
+			System.out.println();
+		}
+	}
+	public static void oddUpperPyramid(int n, int rows) {
+		if(n<rows) {
+			return;
+		} else {
+			printSpaces(n-rows+1);
+			printStars((2*rows)-1);
+			System.out.println();
+			oddUpperPyramid(n,rows+1);
+		}
+	}
+	
+	public static void oddLowerPyramid(int n, int rows) {
+		if(n<rows) {
+			return;
+		} else {
+			oddLowerPyramid(n,rows+1);
+			printSpaces(n-rows+1);
+			printStars((2*rows)-1);
+			System.out.println();
+		}
+	}
 	public static void pattern1(int n) {
 		if(n==0) {
 			return;
@@ -75,56 +147,36 @@ public class PatternProgrammingDecomposition {
 	}
 	
 	public static void pattern3(int n) {
-		pattern3Helper(n,n);
-	}
-	public static void pattern3Helper(int currentRow, int totalRows) {
-		if(currentRow<=0) {
-			return;
-		}
-		
-		printSpaces(currentRow-1);
-		printStarsWithSpaces(totalRows-currentRow+1);
-		System.out.println();
-		pattern3Helper(currentRow-1,totalRows);
+		upperPyramid(n,1);
 	}
 	public static void pattern4(int n) {
-		pattern4Helper(n,n);
-	}
-	
-	public static void pattern4Helper(int currentRow, int totalRows) {
-		if(currentRow<=0) {
-			return;
-		}
-		pattern4Helper(currentRow-1,totalRows);
-		printSpaces(currentRow-1);
-		printStarsWithSpaces(totalRows-currentRow+1);
-		System.out.println();
-		
+		lowerPyramid(n,1);
 	}
 	public static void pattern5(int n) {
 		upperPyramid(n,1);
 		lowerPyramid(n,1);
 	}
 	
-	public static void upperPyramid(int n, int rows) {
-		if(n<rows) {
-			return;
-		} else {
-			printSpaces(n-rows);
-			printStarsWithSpaces(rows);
-			System.out.println();
-			upperPyramid(n,rows+1);
-		}
+	public static void pattern6(int n) {
+		upperPyramid(n-1,1);
+		printStarsWithSpaces(n);
+		System.out.println();
+		lowerPyramid(n-1,1);
 	}
-	public static void lowerPyramid(int n, int rows) {
-		if(n<rows) {
-			return;
-		} else {
-			lowerPyramid(n,rows+1);
-			printSpaces(n-rows);
-			printStarsWithSpaces(rows);
-			System.out.println();
-		}
+	public static void pattern7(int n) {
+		oddUpperPyramid(n,1);
 	}
-	
+	public static void pattern8(int n) {
+		oddLowerPyramid(n,1);
+	}
+	public static void pattern9(int n) {
+		oddUpperPyramid(n,1);
+		oddLowerPyramid(n,1);
+	}
+	public static void pattern10(int n) {
+		oddUpperPyramid(n-1,1);
+		printStars((2*n)-1);
+		System.out.println();
+		oddLowerPyramid(n-1,1);
+	}
 }
