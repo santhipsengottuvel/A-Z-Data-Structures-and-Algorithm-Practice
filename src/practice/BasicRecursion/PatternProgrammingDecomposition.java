@@ -59,9 +59,22 @@ public class PatternProgrammingDecomposition {
 		System.out.println("Pattern 10");
 		System.out.println();
 		pattern10(5);
+		System.out.println();
+		System.out.println("_________________________________________");
+		System.out.println();
+		System.out.println("Pattern 11");
+		System.out.println();
+		pattern11(5);
+		System.out.println();
+		System.out.println("_________________________________________");
+		System.out.println();
+		System.out.println("Pattern 11");
+		System.out.println();
+		pattern12(5);
 		
 	}
 
+	
 	public static void printStars(int n) {
 		if(n<=0) {
 			return ;
@@ -69,7 +82,6 @@ public class PatternProgrammingDecomposition {
 		System.out.print("*");
 		printStars(n-1);
 	}
-	
 	public static void printStarsWithSpaces(int n) {
 		if(n<=0) {
 			return;
@@ -77,7 +89,6 @@ public class PatternProgrammingDecomposition {
 		System.out.print("* ");
 		printStarsWithSpaces(n-1);
 	}
-	
 	public static void printSpaces(int n) {
 		if(n<=0) {
 			return;
@@ -85,7 +96,6 @@ public class PatternProgrammingDecomposition {
 		System.out.print(" ");
 		printSpaces(n-1);
 	}
-	
 	public static void upperPyramid(int n, int rows) {
 		if(n<rows) {
 			return;
@@ -96,7 +106,6 @@ public class PatternProgrammingDecomposition {
 			upperPyramid(n,rows+1);
 		}
 	}
-	
 	public static void lowerPyramid(int n, int rows) {
 		if(n<rows) {
 			return;
@@ -117,7 +126,6 @@ public class PatternProgrammingDecomposition {
 			oddUpperPyramid(n,rows+1);
 		}
 	}
-	
 	public static void oddLowerPyramid(int n, int rows) {
 		if(n<rows) {
 			return;
@@ -128,24 +136,34 @@ public class PatternProgrammingDecomposition {
 			System.out.println();
 		}
 	}
+	public static void rightAngledTriangle(int n) {
+		if(n==0) {
+			return;
+		}
+		rightAngledTriangle(n-1);
+		printStarsWithSpaces(n);
+		System.out.println();
+	}
+	public static void InvertedRightAngledTriangle(int n) {
+		if(n==0) {
+			return;
+		}
+		printStarsWithSpaces(n);
+		System.out.println();
+		InvertedRightAngledTriangle(n-1);
+	}
+	
+	
+	
+	
+	
+	
 	public static void pattern1(int n) {
-		if(n==0) {
-			return;
-		}
-		pattern1(n-1);
-		printStarsWithSpaces(n);
-		System.out.println();
+		rightAngledTriangle(n);
 	}
-	
 	public static void pattern2(int n) {
-		if(n==0) {
-			return;
-		}
-		printStarsWithSpaces(n);
-		System.out.println();
-		pattern2(n-1);
+		InvertedRightAngledTriangle(n);
 	}
-	
 	public static void pattern3(int n) {
 		upperPyramid(n,1);
 	}
@@ -178,5 +196,17 @@ public class PatternProgrammingDecomposition {
 		printStars((2*n)-1);
 		System.out.println();
 		oddLowerPyramid(n-1,1);
+	}
+	public static void pattern11(int n) {
+		oddLowerPyramid(n,1);
+		oddUpperPyramid(n,1);
+	}
+	public static void pattern12(int n) {
+		oddLowerPyramid(n,1);
+		if(n<=1) {
+			return ;
+		} else {
+			oddUpperPyramid(n,2);
+		}
 	}
 }
