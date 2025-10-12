@@ -39,8 +39,6 @@ public class HighestOccuringElementinArray {
 				list.add(Arrays.asList(nums[i],count));
 			}
 		}
-		
-		
 		for(List<Integer>pair : list) {
 			int number = pair.get(0);
 			int freq = pair.get(1);
@@ -51,6 +49,7 @@ public class HighestOccuringElementinArray {
 		}
 		return result;
 	}
+	
 	public static int better(int[] nums) {
 		int freq = 0;
 		int result = 0;
@@ -70,6 +69,7 @@ public class HighestOccuringElementinArray {
 		}
 		return result;
 	}
+	
 	public static int optimized(int[] nums) {
 		int frequency = 0;
 		int result = 0;
